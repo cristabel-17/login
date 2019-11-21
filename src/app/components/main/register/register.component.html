@@ -3,7 +3,8 @@
         <div class="col-x1-4 col-lg-4 col-md-6 col-sm-8">
             <h1>Registro de usuario</h1>
             <mat-form-field class="w-100">
-                <input matInput id="name" name="name" placeholder="Usuario" formControlName="name">
+                <input matInput id="name" name="name" placeholder="Nombre" formControlName="name" required pattern="[a-zA-Z]*">
+            <mat-error *ngIf="formG.controls.name.errors && formG.controls.name.errors.required">Campo requerido</mat-error>    
             </mat-form-field>
         </div>
     </div>   
@@ -11,7 +12,7 @@
     <div class="row justify-content-center">
         <div class="col-x1-4 col-lg-4 col-md-6 col-sm-8">
             <mat-form-field class="w-100">
-                <input matInput id="lastName" name="lastName" placeholder="Apellido" formControlName="lastName">
+                <input matInput id="lastName" name="lastName" placeholder="Apellido" formControlName="lastName" required pattern="[a-zA-Z]*">
             </mat-form-field>
         </div>
     </div>   
@@ -19,7 +20,7 @@
     <div class="row justify-content-center">
         <div class="col-x1-4 col-lg-4 col-md-6 col-sm-8">
             <mat-form-field class="w-100">
-                <input matInput id="username" name="username" placeholder="Usuario" formControlName="username">
+                <input matInput id="username" name="username" placeholder="Usuario" formControlName="username" required pattern="[a-zA-Z]*">
             </mat-form-field>
         </div>
     </div>   
@@ -27,15 +28,21 @@
     <div class="row justify-content-center">
         <div class="col-x1-4 col-lg-4 col-md-6 col-sm-8">
             <mat-form-field class="w-100">
-                <input matInput id="pws" name="pws" placeholder="Contraseña" formControlName="pws">
+                <input matInput id="pws" name="pws" placeholder="Contraseña" formControlName="pws" required pattern="[a-zA-Z]*">
             </mat-form-field>
         </div>
     </div>   
 
     <div class="row justify-content-center">
         <div class="col-x1-4 col-lg-4 col-md-6 col-sm-8">
-            <button mat-raised-button color="warn"class="w-100">Guardar</button>
+            <button mat-raised-button color="warn"class="w-100" [disabled]="!formG.valid">Guardar</button>
         </div>
-    </div>
+    </div><br>
+
+    <div class="row justify-content-center">
+            <div class="col-x1-4 col-lg-4 col-md-6 col-sm-8">
+                <button mat-raised-button color="warn"class="w-100" routerLink="/login">Volver</button>
+            </div>
+        </div>
 
 </form>

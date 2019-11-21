@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -19,8 +19,8 @@ export class RegisterComponent implements OnInit {
   buildForm() //esto es el metodo que llama a las variables
   {
     this.formG = this.formB.group({
-      name: null,
-      lastName: null,
+      name: [null, Validators.required],
+      lastName: [null, Validators.required],
       userName: null,
       pws: null,
     });
