@@ -15,4 +15,9 @@ export class ServiceService
   {
     return this.http.get<User[]>(this.userUrl).pipe();
   }
+  save(user: User)
+  {
+    console.log("usuario guardado correctamente", user);
+    return this.http.post<User>(this.userUrl, user).pipe();
+  }
 }

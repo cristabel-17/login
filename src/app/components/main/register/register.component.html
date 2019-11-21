@@ -3,9 +3,10 @@
         <div class="col-x1-4 col-lg-4 col-md-6 col-sm-8">
             <h1>Registro de usuario</h1>
             <mat-form-field class="w-100">
-                <input matInput id="name" name="name" placeholder="Nombre" formControlName="name" required pattern="[a-zA-Z]*">
-            <mat-error *ngIf="formG.controls.name.errors && formG.controls.name.errors.required">Campo requerido</mat-error>    
-            </mat-form-field>
+                <input matInput id="name" name="name" placeholder="Nombre" formControlName="name" required pattern="[a-zA-Z]*" maxlength="20">
+            <mat-error *ngIf="formG.controls.name.errors && formG.controls.name.errors.required && (formG.controls.name.dirty || formG.controls.name.touched)">Campo requerido</mat-error>
+            <mat-error *ngIf="formG.controls.name.errors && formG.controls.name.errors.pattern && (formG.controls.name.dirty || formG.controls.name.touched)">No se puede ingresar números</mat-error>    
+            </mat-form-field> 
         </div>
     </div>   
 
@@ -13,6 +14,8 @@
         <div class="col-x1-4 col-lg-4 col-md-6 col-sm-8">
             <mat-form-field class="w-100">
                 <input matInput id="lastName" name="lastName" placeholder="Apellido" formControlName="lastName" required pattern="[a-zA-Z]*">
+            <mat-error *ngIf="formG.controls.lastName.errors && formG.controls.lastName.errors.required && (formG.controls.lastName.dirty || formG.controls.lastName.touched)">Campo requerido</mat-error>
+            <mat-error *ngIf="formG.controls.lastName.errors && formG.controls.lastName.errors.pattern && (formG.controls.lastName.dirty || formG.controls.lastName.touched)">No se puede ingresar números</mat-error>
             </mat-form-field>
         </div>
     </div>   
@@ -20,7 +23,9 @@
     <div class="row justify-content-center">
         <div class="col-x1-4 col-lg-4 col-md-6 col-sm-8">
             <mat-form-field class="w-100">
-                <input matInput id="username" name="username" placeholder="Usuario" formControlName="username" required pattern="[a-zA-Z]*">
+                <input matInput id="userName" name="userName" placeholder="Usuario" formControlName="userName" required pattern="[a-zA-Z]*">
+            <mat-error *ngIf="formG.controls.userName.errors && formG.controls.userName.errors.required && (formG.controls.userName.dirty || formG.controls.userName.touched)">Campo requerido</mat-error>
+            <mat-error *ngIf="formG.controls.userName.errors && formG.controls.userName.errors.pattern && (formG.controls.userName.dirty || formG.controls.userName.touched)">No se puede ingresar números</mat-error>
             </mat-form-field>
         </div>
     </div>   
@@ -29,19 +34,21 @@
         <div class="col-x1-4 col-lg-4 col-md-6 col-sm-8">
             <mat-form-field class="w-100">
                 <input matInput id="pws" name="pws" placeholder="Contraseña" formControlName="pws" required pattern="[a-zA-Z]*">
+            <mat-error *ngIf="formG.controls.pws.errors && formG.controls.pws.errors.required && (formG.controls.pws.dirty || formG.controls.pws.touched)">Campo requerido</mat-error>
+            <mat-error *ngIf="formG.controls.pws.errors && formG.controls.pws.errors.pattern && (formG.controls.pws.dirty || formG.controls.pws.touched)">No se puede ingresar números</mat-error>
             </mat-form-field>
         </div>
     </div>   
 
     <div class="row justify-content-center">
         <div class="col-x1-4 col-lg-4 col-md-6 col-sm-8">
-            <button mat-raised-button color="warn"class="w-100" [disabled]="!formG.valid">Guardar</button>
+            <button mat-raised-button color="warn"class="w-100" [disabled]="!formG.valid" (click)="saveUser()">Guardar</button>
         </div>
     </div><br>
 
     <div class="row justify-content-center">
             <div class="col-x1-4 col-lg-4 col-md-6 col-sm-8">
-                <button mat-raised-button color="warn"class="w-100" routerLink="/login">Volver</button>
+                <button mat-raised-button color="secondary"class="w-100" routerLink="/login">Volver</button>
             </div>
         </div>
 
