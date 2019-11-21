@@ -24,6 +24,7 @@ export class AuthGuard implements CanActivate {
         return true;
       }
         console.log('usuario sin autorización');
+        this.router.navigate(['/login']);
         return false;
     }
 }
