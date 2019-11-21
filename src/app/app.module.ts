@@ -7,7 +7,7 @@ import { FooterComponent } from './components/main/footer/footer.component';
 import { LoginComponent } from './components/main/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './mocks/in-memory-data-service';
@@ -16,6 +16,7 @@ import {MatTableModule} from '@angular/material/table';
 import { UserListComponent } from './components/main/user-list/user-list.component';
 import { HomeComponent } from './components/main/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+import { RegisterComponent } from './components/main/register/register.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AppRoutingModule } from './app-routing.module';
     FooterComponent,
     LoginComponent,
     UserListComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     HttpClientModule,
     MatTableModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

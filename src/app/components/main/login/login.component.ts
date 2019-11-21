@@ -11,7 +11,7 @@ import { AuthenticationService } from 'src/app/service/authentication.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user: User = new User('Cristabel', 'contra1234');
+  user: User = new User();
   isLogin: boolean = false;
 
   constructor(
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private serviceService: ServiceService,
     private authenticationService: AuthenticationService) { }
      
-  ngOnInit() {
+  ngOnInit() {localStorage.removeItem('currentUser');
   }
     setUser() 
     {
