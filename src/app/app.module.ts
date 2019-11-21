@@ -12,6 +12,10 @@ import {MatButtonModule} from '@angular/material/button';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './mocks/in-memory-data-service';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
+import { UserListComponent } from './components/main/user-list/user-list.component';
+import { HomeComponent } from './components/main/home/home.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -19,7 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    UserListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     HttpClientModule,
+    MatTableModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

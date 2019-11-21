@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.models';
 import { ServiceService } from '../servicio/servicioLogin/service.service';
+import { first } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/service/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,11 @@ export class LoginComponent implements OnInit {
   user: User = new User('Cristabel', 'contra1234');
   isLogin: boolean = false;
 
-  constructor(private serviceService: ServiceService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private serviceService: ServiceService,
+    private authenticationService: AuthenticationService) { }
      
   ngOnInit() {
   }
@@ -33,11 +40,21 @@ export class LoginComponent implements OnInit {
             this.isLogin = false;
             }
           console.log('isLogin: ', this.isLogin);
-        },
+        }
+        );
+      }
+      onSubmit() 
+      {
+        this.authenticationService.login(this.user.name, this.user.pws)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.router.navigate(['../home'], {relativeTo: this.activatedRoute});
+          },
         error => 
         {
           console.log('error', error);
         }
-      );
-    }
+        )
+      }
 }
