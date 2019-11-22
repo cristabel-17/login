@@ -19,6 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './components/main/register/register.component';
 import {MatSelectModule} from '@angular/material/select';
 import { OnlyCharDirective } from './directives/only-char.directive';
+import { CalificacionComponent } from './components/modules/calificacion/calificacion.component';
+import { AlumnoComponent } from './components/modules/alumno/alumno.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { OnlyCharDirective } from './directives/only-char.directive';
     UserListComponent,
     HomeComponent,
     RegisterComponent,
-    OnlyCharDirective
+    OnlyCharDirective,
+    CalificacionComponent,
+    AlumnoComponent
   ],
   imports: [
     BrowserModule,

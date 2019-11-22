@@ -48,7 +48,12 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.user.name, this.user.pws)
         .pipe(first())
         .subscribe(
-          data => {
+          data =>
+           {
+            if (data)
+            {
+              localStorage.setItem('userName', data.name +' '+ data.lastName) 
+            }
             this.router.navigate(['../home'], {relativeTo: this.activatedRoute});
           },
         error => 

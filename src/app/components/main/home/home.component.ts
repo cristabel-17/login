@@ -11,7 +11,9 @@ export class HomeComponent implements OnInit
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    this.userName = localStorage.getItem('userName');
   }
 
 }
