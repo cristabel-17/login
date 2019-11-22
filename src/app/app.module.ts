@@ -17,6 +17,8 @@ import { UserListComponent } from './components/main/user-list/user-list.compone
 import { HomeComponent } from './components/main/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './components/main/register/register.component';
+import {MatSelectModule} from '@angular/material/select';
+import { OnlyCharDirective } from './directives/only-char.directive';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { RegisterComponent } from './components/main/register/register.component
     LoginComponent,
     UserListComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    OnlyCharDirective
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { RegisterComponent } from './components/main/register/register.component
     HttpClientModule,
     MatTableModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
