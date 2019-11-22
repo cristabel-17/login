@@ -8,6 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ServiceService 
 {
+  static getUser() {
+    throw new Error("Method not implemented.");
+  }
   private userUrl = 'api/user';
   constructor(private http: HttpClient) { }
 

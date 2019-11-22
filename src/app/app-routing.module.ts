@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/main/home/home.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RegisterComponent } from './components/main/register/register.component';
+import { UserListComponent } from './components/main/user-list/user-list.component';
 
 const routes: Routes = [
 
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'user-list',
+    component: UserListComponent
   },
   
 
