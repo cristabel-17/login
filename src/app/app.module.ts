@@ -21,6 +21,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { OnlyCharDirective } from './directives/only-char.directive';
 import { CalificacionComponent } from './components/modules/calificacion/calificacion.component';
 import { AlumnoComponent } from './components/modules/alumno/alumno.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { AlumnoComponent } from './components/modules/alumno/alumno.component';
     AppRoutingModule,
     ReactiveFormsModule,
     MatSelectModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

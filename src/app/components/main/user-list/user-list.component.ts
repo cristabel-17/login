@@ -6,21 +6,24 @@ import { ServiceService } from '../servicio/servicioLogin/service.service';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit 
+{
   data;
+  displayedColumns: string[] = ['name', 'lastName', 'userName'];
   
   constructor(
-    private serviceService = ServiceService
-  ) { }
+    private serviceService: ServiceService) {}
 
   ngOnInit() 
   {
-    this.serviceService.getUser().subscribe(
+    this.serviceService.getUser().subscribe
+    (
       (data) =>
       {
         console.log(data);
         this.data = data;
-      })
+      }
+      );
   }
 
 }
